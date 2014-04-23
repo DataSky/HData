@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<job id="">
+    <reader name="hbase">
+        <zookeeperQuorum>192.168.142.16,192.168.142.17,192.168.142.18</zookeeperQuorum>
+		<zookeeperClientPort>2181</zookeeperClientPort>
+		<table>ip_address</table>
+		<columns>:rowkey,cf:start_ip,cf:end_ip,cf:start_ip_num,cf:end_ip_num,cf:country,cf:area,cf:province,cf:city,cf:isp</columns>
+		<schema>id,start_ip,end_ip,start_ip_num,end_ip_num,country,area,province,city,isp</schema>
+		<startRowkey>958200</startRowkey>
+		<endRowkey></endRowkey>
+		<parallelism>2</parallelism>
+    </reader>
+
+	<writer name="console">
+		<parallelism>1</parallelism>
+	</writer>
+</job>

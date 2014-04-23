@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<configuration>
+	<property>
+		<name>hdata.storage.default.buffer.size</name>
+		<value>16384</value>
+		<description>默认storage缓冲区大小，值必须为2^n</description>
+	</property>
+	<property>
+		<name>hdata.storage.disruptor.wait.strategy</name>
+		<value>BlockingWaitStrategy</value>
+		<description>线程等待策略，可选项：BlockingWaitStrategy、BusySpinWaitStrategy、SleepingWaitStrategy、YieldingWaitStrategy</description>
+	</property>
+	<property>
+		<name>hdata.hive.writer.tmp.dir</name>
+		<value>/tmp</value>
+		<description>Hive Writer写入HDFS文件的临时目录</description>
+	</property>
+</configuration>

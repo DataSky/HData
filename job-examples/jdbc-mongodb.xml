@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<job id="">
+    <reader name="jdbc">
+    	<driver>org.postgresql.Driver</driver>
+		<url>jdbc:postgresql://localhost:5432/ip</url>
+		<username>postgres</username>
+		<password>toor</password>
+		<table>ip_address</table>
+		<columns></columns>
+		<excludeColumns></excludeColumns>
+		<sql></sql>
+		<where></where>
+		<splitBy></splitBy>
+		<parallelism>3</parallelism>
+	</reader>
+
+	<writer name="mongodb">
+		<uri>mongodb://localhost/test.ip</uri>
+		<where></where>
+		<parallelism>3</parallelism>
+	</writer>
+</job>

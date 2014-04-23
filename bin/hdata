@@ -1,0 +1,46 @@
+#!/usr/bin/env bash
+
+
+CDPATH=""
+SCRIPT="$0"
+
+while [ -h "$SCRIPT" ] ; do
+  ls=`ls -ld "$SCRIPT"`
+  link=`expr "$ls" : '.*-> \(.*\)$'`
+  if expr "$link" : '/.*' > /dev/null; then
+    SCRIPT="$link"
+  else
+    SCRIPT=`dirname "$SCRIPT"`/"$link"
+  fi
+done
+
+HDATA_HOME=`dirname "$SCRIPT"`/..
+HDATA_HOME=`cd "$HDATA_HOME"; pwd`
+HDATA_LIB_DIR=$HDATA_HOME/lib
+HDATA_CONF_DIR=$HDATA_HOME/conf
+
+if [ -x "$JAVA_HOME/bin/java" ]; then
+    JAVA="$JAVA_HOME/bin/java"
+else
+    JAVA=`which java`
+fi
+
+if [ ! -x "$JAVA" ]; then
+    echo "Could not find any executable java binary. Please install java in your PATH or set JAVA_HOME"
+    exit 1
+fi
+
+HDATA_CLASSPATH='.'
+for f in $HDATA_LIB_DIR/*.jar; do
+    HDATA_CLASSPATH=${HDATA_CLASSPATH}:$f;
+done
+
+JAVA_OPTS="$JAVA_OPTS -Dhdata.conf.dir=$HDATA_CONF_DIR"
+JAVA_OPTS="$JAVA_OPTS -Dlog4j.configurationFile=file:///$HDATA_CONF_DIR/log4j2.xml"
+
+MAIN_CLASS="com.suning.hdata.CliDriver"
+if [ "$1" = "execute-sql" ]; then
+    MAIN_CLASS="com.suning.hdata.tool.SQLExecuteTool"
+fi
+
+exec "$JAVA" $JAVA_OPTS -cp "$HDATA_CLASSPATH" $MAIN_CLASS "$@"

@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<plugins>
+	<readers>
+		<reader>
+			<name>jdbc</name>
+			<class>opensource.hdata.plugin.reader.jdbc.JDBCReader</class>
+			<splitter>opensource.hdata.plugin.reader.jdbc.JDBCSplitter</splitter>
+		</reader>
+		<reader>
+			<name>hive</name>
+			<class>opensource.hdata.plugin.reader.hive.HiveReader</class>
+			<splitter>opensource.hdata.plugin.reader.hive.HiveSplitter</splitter>
+		</reader>
+		<reader>
+			<name>hdfs</name>
+			<class>opensource.hdata.plugin.reader.hdfs.HDFSReader</class>
+			<splitter>opensource.hdata.plugin.reader.hdfs.HDFSSplitter</splitter>
+		</reader>
+		<reader>
+			<name>ftp</name>
+			<class>opensource.hdata.plugin.reader.ftp.FTPReader</class>
+			<splitter>opensource.hdata.plugin.reader.ftp.FTPSplitter</splitter>
+		</reader>
+		<reader>
+			<name>mongodb</name>
+			<class>opensource.hdata.plugin.reader.mongodb.MongoDBReader</class>
+			<splitter>opensource.hdata.plugin.reader.mongodb.MongoDBSplitter</splitter>
+		</reader>
+		<reader>
+			<name>hbase</name>
+			<class>opensource.hdata.plugin.reader.hbase.HBaseReader</class>
+			<splitter>opensource.hdata.plugin.reader.hbase.HBaseSplitter</splitter>
+		</reader>
+	</readers>
+
+	<writers>
+		<writer>
+			<name>console</name>
+			<class>opensource.hdata.plugin.writer.console.ConsoleWriter</class>
+		</writer>
+		<writer>
+			<name>jdbc</name>
+			<class>opensource.hdata.plugin.writer.jdbc.JDBCWriter</class>
+		</writer>
+		<writer>
+			<name>hive</name>
+			<class>opensource.hdata.plugin.writer.hive.HiveWriter</class>
+		</writer>
+		<writer>
+			<name>hdfs</name>
+			<class>opensource.hdata.plugin.writer.hdfs.HDFSWriter</class>
+		</writer>
+		<writer>
+			<name>ftp</name>
+			<class>opensource.hdata.plugin.writer.ftp.FTPWriter</class>
+		</writer>
+		<writer>
+			<name>mongodb</name>
+			<class>opensource.hdata.plugin.writer.mongodb.MongoDBWriter</class>
+		</writer>
+		<writer>
+			<name>hbase</name>
+			<class>opensource.hdata.plugin.writer.hbase.HBaseWriter</class>
+		</writer>
+	</writers>
+</plugins>
